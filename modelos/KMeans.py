@@ -3,6 +3,7 @@ from sklearn.cluster import KMeans
 class ModelKMeans:
     def __init__(self, name_model, n_clusters=5):
         self.name = name_model
+        self.clusters = n_clusters
         self.kmeans = KMeans(n_clusters, random_state=29) 
         
     def get_name(self):
