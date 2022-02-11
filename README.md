@@ -5,6 +5,7 @@ Implementación del modelo de segmentación de estudiantes
 
 + Genera un modelo de segmenctación usando K-Means usando reducción de dimensionalidad con análisis de componentes principales (PCA)
 + Se obtiene el número de clusters usando la curva de elbow y el método de la silueta 
++ Se normaliza usando StandardScaler
 
 ## Generación de datos
 
