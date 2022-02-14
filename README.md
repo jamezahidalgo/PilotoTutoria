@@ -35,7 +35,7 @@ Implementación del modelo de segmentación de estudiantes
 
 6. Cálculo de la nota (en base al puntaje)
 
-> $
+$
 nota(p) =
 \begin{cases}
 (n_{apr}-n_{min}) \cdot \dfrac{p}{e\cdot p_{max}} + n_{min}\text{ si } p<e\cdot p_{max} \\
@@ -47,12 +47,12 @@ nota(p) =
 $
 
 donde:
->+ $n_{max}$ = nota máxima
->+ $n_{min}$ = nota mínima
->+ $n_{min}$ = nota mínima
->+ $e$ = Exigencia 
->+ $p_{max}$ = puntaje máximo
->+ $p_{min}$ = puntaje mínimo
++ $n_{max}$ = nota máxima
++ $n_{min}$ = nota mínima
++ $n_{min}$ = nota mínima
++ $e$ = Exigencia 
++ $p_{max}$ = puntaje máximo
++ $p_{min}$ = puntaje mínimo
 >+ $n_{aprob}$ = nota aprobación
 
 7. Cálculo de la **categoría** se usa la función:
