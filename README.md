@@ -29,7 +29,7 @@ Implementación del modelo de segmentación de estudiantes
 4. El archivo CSV de contar con las columnas OBLIGATORIAS:
 
   + ID del estudiante 
-  + $I_{i}$ considerando cada ítem evaluado 
+  + Una columna cada ítem evaluado 
 
 5. Considerando el archivo CSV se calculan 2 columnas: ***nota y categoría***.
 
