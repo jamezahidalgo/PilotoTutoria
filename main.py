@@ -11,11 +11,12 @@ To use main.py, you will require to set the following parameters :
 import pathlib
 import sys
 sys.path.append(str(pathlib.Path().absolute()))
-from utiles import ConfigurationFile, GenerateData, LoadData
+from utiles import ConfigurationFile, GenerateData, LoadData, Visualization
 
 import utiles.ConfigurationFile as conf
 import utiles.GenerateData as generate
 import utiles.LoadData as load
+import utiles.Visualization as view
 
 import modelos.KMeans as model
 
@@ -34,23 +35,30 @@ if __name__ == '__main__' :
     configuration_file = pargs.config 
     configurationFile = conf.ConfigurationFile(pargs.config, pargs.name)   
 
-    print("ITEMS", configurationFile.get_items())    
-    print("OBSERVACIONES", configurationFile.get_observaciones())       
+    print("ITEMS", configurationFile.items)    
+    print("OBSERVACIONES", configurationFile.observaciones)       
+    print("EXIGENCIA", configurationFile.exigencia)   
 
     if pargs.mode == 'generate':
-        data_generate = generate.Generate()
-        print("Comenzando a generar los datos en archivo", data_generate.get_output())
-        data_generate.generate()
+        data_generate = generate.Generate(configurationFile,file_output="Simulated_data.csv")
+        print("Comenzando a generar los datos en archivo", data_generate.output)
+        #data_generate.generate()
+        data_generate.calculate_save_from_random()
         print("Datos generados")
+        print(data_generate.data_frame)
+        visual = view.Visualize(data_generate.data_frame)
+        visual.view_histogram(configurationFile.items, "Histograma de puntajes")        
     elif pargs.mode == 'run':
         # Crea el modelo
         print("Creando el modelo ...")
         modelo = model.ModelKMeans("Clustering");
         print("Modelo", modelo.get_name(), "creado ...")
-        data_load = load.Load("Generate.csv")
-        data_frame = data_load.createDF()
+        data_load = load.Load("Simulated_data.csv")
+        data_frame = data_load.createDF(sep=",")
         X = data_load.getData()
+        print(X)
         # Entrena el modelo
         modelo.fit(X)
         # Predice
-        print(modelo.predict(X))
+        print(modelo.predict(X))    
+

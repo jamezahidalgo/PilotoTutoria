@@ -4,11 +4,11 @@ class Load:
     def __init__(self, source_file):
         self.source = source_file
 
-    def createDF(self):
-        self.data_frame = pd.read_csv(self.source, sep=";")
+    def createDF(self, sep=";"):
+        self.data_frame = pd.read_csv(self.source, sep=sep)
         return self.data_frame
 
-    def getFeatures(self, exclude=["RUT"]):
+    def getFeatures(self, exclude=["id"]):
         return self.data_frame.columns.drop(exclude)
 
     def getData(self):
